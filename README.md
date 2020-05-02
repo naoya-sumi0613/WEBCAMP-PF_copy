@@ -23,3 +23,4 @@ Twitter、Instagram等、SNSと同じ。
 ## 設計書
 
 ### 機能一覧
+https://docs.google.com/spreadsheets/d/16l2YCYDqzc__Idev74HL-ujqxQXAYXs0g3tXMyqfTsw/edit?usp=sharing
