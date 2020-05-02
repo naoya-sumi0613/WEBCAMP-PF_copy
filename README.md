@@ -1,24 +1,25 @@
-# README
+# Flip Flap
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+生き物や風景など、何気なく撮影した写真を一言と共に保存。共有。SNS。
 
-Things you may want to cover:
+### サイトテーマ
+何気なく撮影する写真を思い出にしたい。
+写真で誰かを元気付けたい。
 
-* Ruby version
+### テーマを選んだ理由
+写真を見返すことがあまりない。
+言葉と共に保存すると、思い出になりやすい。
+きれいな写真を見ることで元気になる人もいる。
 
-* System dependencies
+### ターゲットユーザ
+写真撮影が好きな人。
+写真をあまり見返さない人。
+写真を見るのが好きな人。
 
-* Configuration
+### 主な利用シーン
+Twitter、Instagram等、SNSと同じ。
 
-* Database creation
+## 設計書
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
