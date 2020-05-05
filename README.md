@@ -24,6 +24,11 @@
 Twitter、Instagram等、SNSと同じ。
 
 ## 設計書
+UIFlows(ユーザー側)
+![image](https://user-images.githubusercontent.com/61011568/81072368-0479b800-8f21-11ea-87b9-616f26968bb1.png)
+
+UIFlows(管理者側)
+![image](https://user-images.githubusercontent.com/61011568/81072792-a5687300-8f21-11ea-8c17-2d2421df6c84.png)
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/16l2YCYDqzc__Idev74HL-ujqxQXAYXs0g3tXMyqfTsw/edit?usp=sharing
