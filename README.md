@@ -25,7 +25,7 @@ Twitter、Instagram等、SNSと同じ。
 
 ## 設計書
 UIFlows(ユーザー側)
-![image](https://user-images.githubusercontent.com/61011568/81072368-0479b800-8f21-11ea-87b9-616f26968bb1.png)
+![image](https://user-images.githubusercontent.com/61011568/81190967-6e629200-8ff3-11ea-805b-5ad519f909d2.png)
 
 UIFlows(管理者側)
 ![image](https://user-images.githubusercontent.com/61011568/81072792-a5687300-8f21-11ea-8c17-2d2421df6c84.png)
