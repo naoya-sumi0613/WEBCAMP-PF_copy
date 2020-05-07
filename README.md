@@ -28,7 +28,7 @@ UIFlows(ユーザー側)
 ![image](https://user-images.githubusercontent.com/61011568/81190967-6e629200-8ff3-11ea-805b-5ad519f909d2.png)
 
 UIFlows(管理者側)
-![image](https://user-images.githubusercontent.com/61011568/81072792-a5687300-8f21-11ea-8c17-2d2421df6c84.png)
+![image](https://user-images.githubusercontent.com/61011568/81313383-c4523b00-90c2-11ea-899b-1385ccb8345e.png)
 
 ワイヤーフレーム(ユーザー側)  
 https://drive.google.com/file/d/120p2ujgeWXZbqYhNny5IehpckcEAaDH2/view?usp=sharing
