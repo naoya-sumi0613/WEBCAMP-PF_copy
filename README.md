@@ -31,7 +31,10 @@ UIFlows(管理者側)
 ![image](https://user-images.githubusercontent.com/61011568/81313383-c4523b00-90c2-11ea-899b-1385ccb8345e.png)
 
 ワイヤーフレーム(ユーザー側)  
-https://drive.google.com/file/d/120p2ujgeWXZbqYhNny5IehpckcEAaDH2/view?usp=sharing
+https://drive.google.com/file/d/120p2ujgeWXZbqYhNny5IehpckcEAaDH2/view?usp=sharing  
+
+ワイヤーフレーム(管理者側)  
+https://drive.google.com/file/d/1aixqcrP7H3sjQT4sU-9DYfhvwj9NzcDh/view?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/16l2YCYDqzc__Idev74HL-ujqxQXAYXs0g3tXMyqfTsw/edit?usp=sharing
