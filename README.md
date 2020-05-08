@@ -34,7 +34,10 @@ UIFlows(管理者側)
 https://drive.google.com/file/d/120p2ujgeWXZbqYhNny5IehpckcEAaDH2/view?usp=sharing  
 
 ワイヤーフレーム(管理者側)  
-https://drive.google.com/file/d/1aixqcrP7H3sjQT4sU-9DYfhvwj9NzcDh/view?usp=sharing
+https://drive.google.com/file/d/1aixqcrP7H3sjQT4sU-9DYfhvwj9NzcDh/view?usp=sharing  
+  
+ER図  
+https://drive.google.com/file/d/165f8TvKAluga53Y6bHUEP4PBOVz2PBet/view?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/16l2YCYDqzc__Idev74HL-ujqxQXAYXs0g3tXMyqfTsw/edit?usp=sharing
