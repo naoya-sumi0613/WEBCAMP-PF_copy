@@ -40,7 +40,10 @@ ER図
 https://drive.google.com/file/d/165f8TvKAluga53Y6bHUEP4PBOVz2PBet/view?usp=sharing  
   
 テーブル定義書  
-https://drive.google.com/file/d/1pPixMqJ9Syp1zLxu11IqsSMk-kVkEVrD/view?usp=sharing
+https://drive.google.com/file/d/1pPixMqJ9Syp1zLxu11IqsSMk-kVkEVrD/view?usp=sharing  
+  
+アプリケーション詳細設計書  
+https://docs.google.com/spreadsheets/d/1VXd5kqh68gJxLrvJBWcf7GKq7mrlo4h-3CfEinuFjsI/edit?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/16l2YCYDqzc__Idev74HL-ujqxQXAYXs0g3tXMyqfTsw/edit?usp=sharing
