@@ -1,0 +1,11 @@
+<!-- ロゴにする予定 -->
+<h1>Flip Flap</h1>
+
+<h4>お問い合わせ</h4>
+
+<%= form_with model: @contact, local: true do |f| %>
+<%= f.text_field :title, placeholder: "件名" %>
+<%= f.text_field :content, placeholder: "内容" %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.submit "送信" %>
+<% end %>

@@ -1,0 +1,42 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :last_name, placeholder: "姓"  %>
+  </div>
+  <div class="field">
+    <%= f.text_field :first_name, placeholder: "名"  %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :full_name, :value => "#{:last_name}#{:first_name}"  %>
+  </div>
+  <div class="field">
+    <%= f.text_field :read_last_name, placeholder: "セイ"  %>
+  </div>
+  <div class="field">
+    <%= f.text_field :read_first_name, placeholder: "メイ"  %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :read_full_name, :value => "#{:read_last_name}#{:read_first_name}" %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, placeholder: "メールアドレス" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, placeholder: "パスワード(6文字以上)" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
