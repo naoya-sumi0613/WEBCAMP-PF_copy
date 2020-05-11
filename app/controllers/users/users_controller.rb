@@ -9,14 +9,22 @@ class Users::UsersController < ApplicationController
   end
 
   def edit
+  	@user = User.find(current_user.id)
   end
 
   def update
+  	@user = User.find(params[:id])
+  	@user.update(user_params)
+  	redirect_to user_path(params[:id])
   end
 
   def retire
   end
 
   def destroy
+  end
+
+  def user_params
+  	params.require(:user).permit(:image, :last_name, :first_name, :read_last_name, :read_first_name, :email, :introduction)
   end
 end

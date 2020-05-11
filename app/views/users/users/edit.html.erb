@@ -1,2 +1,46 @@
-<h1>Users::Users#edit</h1>
-<p>Find me in app/views/users/users/edit.html.erb</p>
+<h3>ユーザー情報変更</h3>
+
+<%= form_with model: @user, local: true do |f| %>
+
+<div class="row">
+	<div class="col-md-6">
+<label>
+<p><%= attachment_image_tag @user, :image, :fill, 300, 200, fallback: 'no_image.jpg', size: '300x200', id: 'img_prev' %></p>
+<p class="btn btn-primary btn-md">画像選択</p>
+<%= f.attachment_field :image, style: 'display: none;', id:'user_img' %></label>
+</div>
+<div class="col-md-6">
+	<div class="form-row">
+		<div class="col-md-6">
+<%= f.text_field :last_name, class: "form-control" %>
+</div>
+		<div class="col-md-6">
+<%= f.text_field :first_name, class: "form-control" %>
+</div>
+</div>
+<%= f.text_field :read_last_name %>
+<%= f.text_field :read_first_name %>
+<%= f.email_field :email %>
+<%= f.text_field :introduction %>
+<%= f.submit '更新する' %>
+<%= link_to '退会', retire_user_path %>
+<% end %>
+</div>
+
+
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#user_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
