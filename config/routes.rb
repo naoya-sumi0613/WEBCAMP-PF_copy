@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'users/show'
+    get 'users/edit'
+    get 'users/retire'
+  end
   root 'users/homes#top'
   devise_for :admins
 
