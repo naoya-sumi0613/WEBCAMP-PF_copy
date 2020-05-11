@@ -1,2 +1,6 @@
-<h1>Users::Users#show</h1>
-<p>Find me in app/views/users/users/show.html.erb</p>
+<h3><%= @name %>の投稿一覧</h3>
+
+<%= attachment_image_tag @user, :image, :fill, 300, 200, fallback: 'no_image.jpg', size: '300x200' %>
+<p>名前 <%= "#{@user.last_name}#{@user.first_name}" %></p>
+<p>自己紹介文</p>
+<p><%= @user.introduction %></p>
