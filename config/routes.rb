@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'photos/index'
+    get 'photos/new'
+    get 'photos/show'
+  end
   root 'users/homes#top'
   devise_for :admins
 
@@ -10,10 +15,11 @@ Rails.application.routes.draw do
   		registrations: 'users/registrations',
   		passwords: 'users/passwords'
   	}
+    get 'homes/about'
     resources :users, only: [:show, :edit, :update, :destroy] do
       get :retire, on: :member
     end
-    get 'homes/about'
+    resources :photos, only: [:index, :new, :create, :show, :destroy, :update]
     resource :contacts, only: [:new, :create]
     get 'contacts/done' => "contacts#done"
   end
