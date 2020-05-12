@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   		registrations: 'users/registrations',
   		passwords: 'users/passwords'
   	}
-    resources :users, only: [:show, :edit, :update, :dastroy] do
+    resources :users, only: [:show, :edit, :update, :destroy] do
       get :retire, on: :member
     end
     get 'homes/about'

@@ -1,10 +1,42 @@
+<div class="row">
+	<div class="col-md-12">
+
 <h3><%= @name %>の投稿一覧</h3>
+</div>
+</div>
 
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-sm-6 col-md-4 col-lg-3">
+
+		<div class="row">
+			<div class="col-12">
 <%= attachment_image_tag @user, :image, :fill, 300, 200, fallback: 'no_image.jpg', size: '300x200' %>
-<p>名前 <%= "#{@user.last_name}#{@user.first_name}" %></p>
-<p>自己紹介文</p>
-<p><%= @user.introduction %></p>
+</div>
+</div>
+
+<div class="row">
+	<div class="col-12">
+		<%= "#{@user.last_name}#{@user.first_name}" %>　<%= "(#{@user.read_last_name}#{@user.read_first_name})" %></div>
+	</div>
+
+<div class="row">
+	<div class="col-11" style="margin: 0 auto; height: auto;">
+<%= @user.introduction %>
+</div>
+</div>
+
+<div class="row">
+	<div class="col-12">フォロー〇人　フォロワー〇人</div>
+</div>
+<div class="row">
+	<div class="col-8"></div>
+	<div class="col-2">
+		<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" do %>
+	<i class="fas fa-wrench"></i>
+	<% end %>
+</div>
+	<div class="col-2">🔔</div>
+</div>
+
 </div>
 </div>
