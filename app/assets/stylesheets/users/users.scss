@@ -17,3 +17,16 @@ label {
 .form-row {
 	margin-top: 10px;
 }
+
+@media screen and (max-width:768px) {
+	.photo {
+	padding-left: 0;
+	padding-right: 0;
+	}
+}
+
+.text {
+	font-size: 15px;
+	padding-left: 0;
+	padding-right: 0;
+}

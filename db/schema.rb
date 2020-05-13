@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_122820) do
     t.integer "user_id", null: false
     t.string "image_id", null: false
     t.string "word"
-    t.integer "range", default: 0, null: false
+    t.integer "range", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_photos_on_created_at"

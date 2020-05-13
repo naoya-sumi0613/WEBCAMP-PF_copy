@@ -4,7 +4,7 @@ class CreatePhotos < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.string :image_id, null: false
       t.string :word
-      t.integer :range, null: false, default: 0
+      t.integer :range, null: false
 
       t.timestamps
     end
