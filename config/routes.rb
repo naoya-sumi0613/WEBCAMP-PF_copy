@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'likes/index'
+  end
   root 'users/homes#top'
   devise_for :admins
 
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
     end
     resources :photos, only: [:index, :new, :create, :show, :destroy, :update] do
       resources :comments, only: [:index, :create, :destroy, :update]
+      resources :likes, only: [:index, :create, :destroy]
     end
     resource :contacts, only: [:new, :create]
     get 'contacts/done' => "contacts#done"

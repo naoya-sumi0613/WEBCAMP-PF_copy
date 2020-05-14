@@ -10,7 +10,7 @@ class Users::CommentsController < ApplicationController
 
   def index
   	@photo = Photo.find(params[:photo_id])
-  	@comment = Comment.where(photo_id: params[:photo_id])
+  	@comments = Comment.where(photo_id: params[:photo_id])
   end
 
   def destroy
