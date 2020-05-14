@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :contacts
   has_many :photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
   attachment :image
 end

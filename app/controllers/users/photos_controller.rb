@@ -18,6 +18,19 @@ class Users::PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @user = User.find(@photo.user_id)
+    @comment = Comment.new
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    @photo.update(photo_params)
+    redirect_to photo_path(params[:id])
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to user_path(current_user)
   end
 
 

@@ -4,58 +4,85 @@
 	</div>
 </div>
 
-	<%= form_with model: @user, local: true do |f| %>
 		<div class="row">
-			<div class="col-sm-8 col-md-6 col-lg-4">
-				<div class="row photo">
-					<div class="col-2">
-						<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100' %>
+			<div class="col-md-5 col-lg-4 frame">
+				<div class="row">
+					<div class="col-3">
+						<%= link_to user_path(@user) do %>
+							<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100', class: "radius" %>
+						<% end %>
 					</div>
-					<div class="col-4">
-						<%= "#{@user.last_name}#{@user.first_name}" %>
-					</div>
-					<div class="col-4">
-						<%= f.select :range, [["全ユーザー","全ユーザー"],["フォロワーのみ","フォロワーのみ"],["自分のみ","自分のみ"]], {}, {class: "form-control", style: "width: 100%;"} %>
-					</div>
-					<div class="col-2">
-						<%= f.submit '更新', class: "btn btn-primary", style: "width: 100%" %>
+					<div class="col-9" style="margin: auto 0;">
+						<%= link_to user_path(@user), style: "color: black; text-decoration: none;" do %>
+							<%= "#{@user.last_name}#{@user.first_name}" %>
+						<% end %>
 					</div>
 				</div>
-
 				<div class="row">
+						<%= attachment_image_tag @photo, :image, :fill, 300, 200, class: "photo"; %>
+				</div>
+				<div class="row" style="margin-top: 1%;">
 					<div class="col-12">
-
-						<%= attachment_image_tag @photo, :image, :fill, 300, 200, fallback: 'no_image_photo.jpg', size: '300x200', id: 'img_prev' %>
+						<%= l @photo.created_at %>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-10 btn btn-primary btn-md" style="margin: 20px auto;">
-						画像選択<%= f.attachment_field :image, style: 'display: none;', id:'photo_img' %>
+				<div class="row" style="margin-top: 1%;">
+					<div class="col-12">
+						<%= @photo.word %>
 					</div>
 				</div>
-			</label>
-		</div>
+				<%if @user == current_user %>
+					<%= form_with model: @photo, local: true do |f| %>
+					<%= f.hidden_field :user_id, :value => @photo.user_id %>
+					<%= f.hidden_field :image, :value => @photo.image %>
+					<%= f.hidden_field :word, :value => @photo.word %>
+					<div class="row">
+						<div class="col-8">
+							<%= f.select :range, [["全ユーザー","全ユーザー"],["フォロワーのみ","フォロワーのみ"],["自分のみ","自分のみ"]], {}, {class: "form-control", style: "width: 100%;"} %>
+						</div>
+						<div class="col-4">
+							<%= f.submit '更新', class: "btn btn-primary", style: "width: 100%" %>
+						</div>
+					</div>
+					<% end %>
+				<% end %>
+				<div class="row" style="margin-top: 1%;">
+					<div class="col-3" style="text-align: center;">
+						<i class="far fa-heart">:〇</i>
+					</div>
+					<div class="col-3" style="text-align: center;">
+						<%= link_to photo_comments_path(@photo), style: "color:black;" do %>
+							<i class="far fa-comments">:<%= @photo.comments.count %></i>
+						<% end %>
+					</div>
+					<div class="col-3" style="text-align: center;">
+						<i class="far fa-eye">:〇</i>
+					</div>
+					<div class="col-3" style="text-align: center;">
+						<% if @user == current_user %>
+							<%= link_to photo_path(@photo), style: "color: gray;", method: :delete, "data-confirm" => "投稿を削除します。よろしいですか？" do %>
+								<i class="far fa-trash-alt"></i>
+							<% end %>
+						<% else %>
+							<i class="far fa-heart"><span style="font-size: 10px;">いいね</span></i>
+						<% end %>
+					</div>
+				</div>
+			</div>
 
-		<div class="col-md-6 col-lg-4">
+		<div class="col-md-5 col-lg-4">
 		<!-- ↑余裕があればpositionで設定 -->
 
+			<%= form_with(model: [@photo, @comment], local: true) do |f| %>
 			<div class="form-row">
 				<div class="col-12">
-					<%= f.text_area :word, placeholder: "一言(３０文字以内)", class: "form-control" %>
+					<%= f.text_area :comment, placeholder: "コメント", class: "form-control" %>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-12">
-					<input type="text" readonly class="form-control-plaintext" id="staticEmail" value="タグスペース(未実装)">
+					<%= f.submit 'コメントする', class: "btn btn-primary", style: "width: 100%" %>
 				</div>
 			</div>
-			<div class="form-row">
-				<div class="col-8">
-					<%= f.select :range, [["全ユーザー","全ユーザー"],["フォロワーのみ","フォロワーのみ"],["自分のみ","自分のみ"]], {include_blank: "-- 公開範囲の選択 --"}, {class: "form-control", style: "width: 100%;"} %>
-				</div>
-				<div class="col-4">
-					<%= f.submit '投稿する', class: "btn btn-success", style: "width: 100%" %>
-				</div>
-			</div>
+			<% end %>
 		</div>
-<% end %>

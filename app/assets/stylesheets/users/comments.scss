@@ -1,4 +1,4 @@
-// Place all the styles related to the users/users controller here.
+// Place all the styles related to the users/Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -18,12 +18,14 @@ label {
 	border-radius: 50%;
 	margin: 5px 0;
 	width: 70%;
+	min-width: 45px;
 }
 
 .frame {
 	display: inline-block;
 	margin-bottom: 5%;
 	padding-bottom: 3%;
+	margin-left: 5%;
   position: relative;
   background: #fff0cd;
   box-shadow: 0px 0px 0px 5px #fff0cd;
@@ -45,7 +47,7 @@ label {
 
 @media screen and (max-width:768px) {
 	.frame {
-		margin: 0 10px;
+	margin: 0 10px;
 	}
 }
 
@@ -56,20 +58,8 @@ label {
   background:#fff;
   box-shadow: 1px 1px 5px gba(20,20,20,0.2);
 }
-.form-row {
-	margin-top: 10px;
-}
 
-
-
-.text {
-	font-size: 15px;
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.over-text {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+.line {
+	border-bottom: solid 1px gray;
+	border-top: solid 1px gray;
 }
