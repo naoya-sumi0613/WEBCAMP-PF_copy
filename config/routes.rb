@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   namespace :users do
-    get 'likes/index'
+    get 'relationships/follow'
+    get 'relationships/follower'
   end
   root 'users/homes#top'
   devise_for :admins
@@ -15,7 +16,11 @@ Rails.application.routes.draw do
   	}
     get 'homes/about'
     resources :users, only: [:show, :edit, :update, :destroy] do
-      get :retire, on: :member
+      post 'follow/:id' => 'relationships#follow', as: 'follow'
+      post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+      member do
+        get :retire, :follow, :follower
+      end
     end
     resources :photos, only: [:index, :new, :create, :show, :destroy, :update] do
       resources :comments, only: [:index, :create, :destroy, :update]

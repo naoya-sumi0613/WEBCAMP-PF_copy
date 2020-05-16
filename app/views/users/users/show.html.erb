@@ -23,14 +23,21 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12">フォロー〇人　フォロワー〇人</div>
+			<div class="col-12">フォロー<%= @user.followed.count %>　フォロワー<%= @user.follower.count %></div>
 		</div>
 		<div class="row">
 			<div class="col-8"></div>
 			<div class="col-2">
-				<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" do %>
+				<% if @user == current_user %>
+					<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" do %>
 					<i class="fas fa-wrench"></i>
+					<% end %>
+				<% elsif current_user.following?(@user) %>
+					<%= link_to 'フォローをはずす',user_unfollow_path(@user.id), method: :post %>
+				<% else %>
+					<%= link_to 'フォローする', user_follow_path(@user.id), method: :POST %>
 				<% end %>
+
 			</div>
 			<div class="col-2">🔔</div>
 		</div>
