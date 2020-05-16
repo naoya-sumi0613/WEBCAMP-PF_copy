@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-12">
+		<h3>フォロワーユーザー一覧</h3>
+	</div>
+</div>
+
+<% @users.each do |user| %>
+<table>
+		<tr>
+			<td><%= attachment_image_tag user, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100', class: "radius" %></td>
+			<td><%= "#{user.last_name}#{user.first_name}" %></td>
+			<td><%= user.introduction %></td>
+			<td>
+				<% if user != current_user %>
+					<% if current_user.following?(user) %>
+						<%= link_to 'フォローをはずす', user_unfollow_path(user), method: :post %>
+					<% else %>
+						<%= link_to 'フォローする', user_follow_path(user), method: :POST %>
+					<% end %>
+				<% end %>
+			</td>
+		</tr>
+</table>
+<% end %>

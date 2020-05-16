@@ -28,6 +28,16 @@ class Users::UsersController < ApplicationController
   	redirect_to root_path
   end
 
+  def follow
+    @user = User.find(params[:id])
+    @users = @user.following_user 
+  end
+
+  def follower
+    @user = User.find(params[:id])
+    @users = @user.follower_user
+  end
+
   def user_params
   	params.require(:user).permit(:image, :last_name, :first_name, :read_last_name, :read_first_name, :email, :introduction)
   end

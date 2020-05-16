@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :users do
-    get 'relationships/follow'
-    get 'relationships/follower'
-  end
   root 'users/homes#top'
   devise_for :admins
 

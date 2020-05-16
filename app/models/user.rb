@@ -15,12 +15,12 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(user_id)
-  	followed.create(follower_id: user_id)
+  	follower.create(followed_id: user_id)
   end
 
   # ユーザーのフォローをはずす
   def unfollow(user_id)
-  	followed.find_by(follower_id: user_id).destroy
+  	follower.find_by(followed_id: user_id).destroy
   end
 
   # フォローしていればtrue
