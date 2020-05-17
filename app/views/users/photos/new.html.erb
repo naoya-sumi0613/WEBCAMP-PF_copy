@@ -29,7 +29,7 @@
 			<div class="form-row">
 				<div class="col-12">
 					<%= f.text_area :word, placeholder: "一言(３０文字以内)", class: "form-control", id: "input-text" %>
-          <p style="text-align: right;" id="counter">0文字</p>
+          <p style="text-align: right;" id="counter">0/30</p>
 				</div>
 			</div>
 			<div class="form-row">
@@ -65,4 +65,15 @@
         readURL(this);
     });
   });
+
+  $(function(){
+  $("#input-text").on("keyup", function() {
+    let countNum = String($(this).val().length);
+    if(countNum>30){
+      $("#counter").text(countNum + "/30").css("color", "red");
+    }else {
+      $("#counter").text(countNum + "/30").css("color", "");
+    }
+ });
+});
 </script>
