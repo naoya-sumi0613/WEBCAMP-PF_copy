@@ -1,0 +1,3 @@
+$('.likes_buttons_<%= @photo.id %>').html("<%= j(render partial: 'users/likes/like', locals: {photo: @photo}) %>");
+
+$('.likes_counts_<%= @photo.id %>').html("<%= j(render partial: 'users/likes/like_counts', locals: {photo: @photo}) %>");

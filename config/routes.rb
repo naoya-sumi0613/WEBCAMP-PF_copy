@@ -19,8 +19,11 @@ Rails.application.routes.draw do
       end
     end
     resources :photos, only: [:index, :new, :create, :show, :destroy, :update] do
-      resources :comments, only: [:index, :create, :destroy, :update]
-      resources :likes, only: [:index, :create, :destroy]
+      member do
+        get :likes, :comments
+      end
+      resources :comments, only: [:create, :destroy, :update]
+      resource :likes, only: [:create, :destroy]
     end
     resource :contacts, only: [:new, :create]
     get 'contacts/done' => "contacts#done"

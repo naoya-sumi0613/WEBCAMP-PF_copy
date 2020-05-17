@@ -8,11 +8,6 @@ class Users::CommentsController < ApplicationController
   	redirect_to photo_comments_path
   end
 
-  def index
-  	@photo = Photo.find(params[:photo_id])
-  	@comments = Comment.where(photo_id: params[:photo_id])
-  end
-
   def destroy
   	@comment = Comment.find_by(photo_id: params[:photo_id], id: params[:id])
   	@comment.destroy
@@ -22,7 +17,6 @@ class Users::CommentsController < ApplicationController
   def update
   	@comment = Comment.find_by(photo_id: params[:photo_id], id: params[:id])
   	@comment.update_attributes(thanks: params[:thanks])
-  	redirect_to photo_comments_path
   end
 
   private

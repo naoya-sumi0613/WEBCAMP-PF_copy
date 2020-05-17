@@ -1,0 +1,3 @@
+$('.follows_buttons_<%= @user.id %>').html("<%= j(render partial: 'users/relationships/follow_button', locals: {user: @user}) %>");
+
+$('.follow_counts_<%= @user.id %>').html("<%= j(render partial: 'users/relationships/follow_counts', locals: {user: @user}) %>");

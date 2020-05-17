@@ -1,0 +1,6 @@
+<%= link_to follow_user_path, style: "color: black; text-decoration: none;", remote: true do %>
+  フォロー:<%= user.follower.count %>　
+<% end %>
+ <%= link_to follower_user_path, style: "color: black; text-decoration: none;", remote: true do %>
+  フォロワー:<%= user.followed.count %>
+<% end %>

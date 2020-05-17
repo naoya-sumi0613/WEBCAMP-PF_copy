@@ -48,9 +48,9 @@
 				<% end %>
 				<div class="row" style="margin-top: 1%;">
 					<div class="col-3" style="text-align: center;">
-						<%= link_to photo_likes_path(@photo), style: "color: black;" do %>
-							<i class="far fa-heart">:<%= @photo.likes.count %></i>
-						<% end %>
+						<div class="likes_counts_<%= @photo.id %>">
+							<%= render partial: 'users/likes/like_counts', locals: { photo: @photo} %>
+						</div>
 					</div>
 					<div class="col-3" style="text-align: center;">
 						<%= link_to photo_comments_path(@photo), style: "color:black;" do %>
@@ -66,15 +66,9 @@
 								<i class="far fa-trash-alt"></i>
 							<% end %>
 						<% else %>
-							<% if @photo.liked_by?(current_user) %>
-								<%= link_to photo_like_path(@photo), method: :delete do %>
-									<i class="fas fa-heart" style="color: red;"><span style="text-decoration: none; font-size: 10px; color: red;">いいね</span></i>
-								<% end %>
-							<% else %>
-								<%= link_to photo_likes_path(@photo), method: :post do %>
-									<i class="far fa-heart" style="color: black;"><span style="font-size: 10px; color: black; text-decoration: none;">いいね</span></i>
-								<% end %>
-							<% end %>
+							<div class="likes_buttons_<%= @photo.id %>">
+									<%= render partial: 'users/likes/like', locals: { photo: @photo} %>
+							</div>
 						<% end %>
 					</div>
 				</div>

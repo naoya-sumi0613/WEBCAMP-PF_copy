@@ -33,6 +33,15 @@ class Users::PhotosController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def likes
+    @photo = Photo.find(params[:id])
+    @likes = Like.where(photo_id: @photo.id)
+  end
+
+  def comments
+    @photo = Photo.find(params[:id])
+    @comments = Comment.where(photo_id: @photo.id)
+  end
 
   def photo_params
   	params.require(:photo).permit(:user_id, :image, :word, :range)

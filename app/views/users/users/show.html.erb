@@ -8,7 +8,7 @@
 	<div class="col-md-4 col-lg-4 col-xl-3">
 
 		<div class="row">
-			<div class="col-12 photo">
+			<div class="col-12 photo" style="width: 100%;">
 				<%= attachment_image_tag @user, :image, :fill, 300, 200, fallback: 'no_image.jpg', size: '300x200' %>
 			</div>
 		</div>
@@ -24,27 +24,23 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<%= link_to follow_user_path, style: "color: black; text-decoration: none;" do %>
-					フォロー:<%= @user.follower.count %>　
-				<% end %>
-				<%= link_to follower_user_path, style: "color: black; text-decoration: none;" do %>
-					フォロワー:<%= @user.followed.count %>
-				<% end %>
+				<div class="follow_counts_<%= @user.id %>">
+					<%= render partial: 'users/relationships/follow_counts', locals: { user: @user} %>
+				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-8"></div>
-			<div class="col-2">
-				<% if @user == current_user %>
-					<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" do %>
-					<i class="fas fa-wrench"></i>
-					<% end %>
-				<% elsif current_user.following?(@user) %>
-					<%= link_to 'フォローをはずす', user_unfollow_path(@user.id), method: :post %>
+			<div class="col-4"></div>
+			<div class="col-6">
+				<% if @user != current_user %>
+					<div class="follows_buttons_<%= @user.id %>">
+						<%= render partial: 'users/relationships/follow_button', locals: { user: @user} %>
+					</div>
 				<% else %>
-					<%= link_to 'フォローする', user_follow_path(@user.id), method: :POST %>
+					<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", style: "width:120px;" do %>
+						<i class="fas fa-wrench"></i>
+					<% end %>
 				<% end %>
-
 			</div>
 			<div class="col-2">🔔</div>
 		</div>

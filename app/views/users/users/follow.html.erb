@@ -11,7 +11,11 @@
 			<td><%= "#{user.last_name}#{user.first_name}" %></td>
 			<td><%= user.introduction %></td>
 			<td>
-				<%= link_to 'フォローをはずす', user_unfollow_path(user), method: :post %>
+				<% if user != current_user %>
+					<div class="follows_buttons_<%= user.id %>">
+						<%= render partial: 'users/relationships/follow_button', locals: { user: user} %>
+					</div>
+				<% end %>
 			</td>
 		</tr>
 </table>

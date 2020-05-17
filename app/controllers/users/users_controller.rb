@@ -30,7 +30,7 @@ class Users::UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
-    @users = @user.following_user 
+    @users = @user.following_user
   end
 
   def follower
