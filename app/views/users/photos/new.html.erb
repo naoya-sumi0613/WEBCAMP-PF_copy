@@ -34,7 +34,7 @@
 			</div>
 			<div class="form-row">
 				<div class="col-12">
-					<input type="text" readonly class="form-control-plaintext" id="staticEmail" value="タグスペース(未実装)">
+          <%= f.text_field :tag_list, placeholder: "タグ入力 (例)動物 犬 かわいい", value: @photo.tag_list, class: "form-control" %>
 				</div>
 			</div>
 			<div class="form-row">

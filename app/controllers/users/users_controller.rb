@@ -1,7 +1,7 @@
 class Users::UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-    @photos = Photo.where(user_id: params[:id]).order(created_at: "DESC")
+    @photos = Photo.where(user_id: params[:id]).order(created_at: "DESC").page(params[:page]).per(6)
   	if @user == current_user
   		@name = "あなた"
   	else

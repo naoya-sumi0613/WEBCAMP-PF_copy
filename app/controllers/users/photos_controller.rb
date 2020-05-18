@@ -1,7 +1,12 @@
 class Users::PhotosController < ApplicationController
+  impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
+
   def index
     @photos = Photo.order(created_at: "DESC")
     @user = User.find(current_user.id)
+    if params[:tag_name]
+      @photos = Photo.tagged_with("#{params[:tag_name]}").order(created_at: "DESC")
+    end
   end
 
   def new
@@ -44,6 +49,6 @@ class Users::PhotosController < ApplicationController
   end
 
   def photo_params
-  	params.require(:photo).permit(:user_id, :image, :word, :range)
+  	params.require(:photo).permit(:user_id, :image, :word, :range, :tag_list)
   end
 end

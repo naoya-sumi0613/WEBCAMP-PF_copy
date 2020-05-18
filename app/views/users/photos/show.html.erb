@@ -31,6 +31,15 @@
 						<%= @photo.word %>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col">
+						<% @photo.tag_list.each do |tag| %>
+							<%= link_to photos_path(tag_name: tag), class: "text-white btn btn-success btn-sm p-1" do %>
+								<%= tag %>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
 				<%if @user == current_user %>
 					<%= form_with model: @photo, local: true do |f| %>
 					<%= f.hidden_field :user_id, :value => @photo.user_id %>
@@ -58,7 +67,7 @@
 						<% end %>
 					</div>
 					<div class="col-3" style="text-align: center;">
-						<i class="far fa-eye">:〇</i>
+						<i class="far fa-eye">:<%= @photo.impressions_count %></i>
 					</div>
 					<div class="col-3" style="text-align: center;">
 						<% if @user == current_user %>

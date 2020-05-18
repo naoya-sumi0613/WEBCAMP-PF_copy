@@ -9,4 +9,7 @@ class Photo < ApplicationRecord
 	end
 
   attachment :image
+
+  acts_as_taggable #タグ付け
+  is_impressionable counter_cache: true #閲覧数
 end
