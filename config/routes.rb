@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   		registrations: 'users/registrations',
   		passwords: 'users/passwords'
   	}
+    delete "notifications" => "notifications#destroy_all"
+    resources :notifications, only: [:index, :destroy]
     get 'homes/about'
     resources :users, only: [:show, :edit, :update, :destroy] do
       post 'follow/:id' => 'relationships#follow', as: 'follow'

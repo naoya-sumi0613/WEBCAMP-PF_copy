@@ -1,0 +1,47 @@
+<div class="row" style="max-width: 768px;">
+  <div class="col-9">
+    <h3>通知一覧</h3>
+  </div>
+  <div class="col-3" style="padding-top: 15px;">
+    <%= link_to notifications_path, method: :delete, "data-confirm" => "通知を全件削除します。よろしいですか？", style: "color: black;" do %>
+      <i class="far fa-trash-alt">全削除</i>
+    <% end %>
+  </div>
+</div>
+
+<% @notifications.where.not(visitor_id: current_user.id).each do |notification| %>
+  <% if notification.visited_id.nil? %>
+    <p>通知はありません</p>
+  <% else %>
+    <div class="row" style="max-width: 768px;">
+      <div class="col-10">
+        <span>
+          <%= link_to user_path(notification.visitor) do %>
+            <%= attachment_image_tag notification.visitor, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100', class: "radius", style: "max-width: 20px;" %>
+            <%= "#{notification.visitor.last_name}" "#{notification.visitor.first_name}" %>
+          <% end %>
+          さんが
+
+          <% case notification.action %>
+          <% when 'follow' %>
+            <%= 'あなたをフォローしました。' %>
+          <% when 'like' %>
+            <%= link_to 'あなたの投稿', notification.photo %>にいいねしました。
+          <% when 'comment' %>
+            <%= link_to 'あなたの投稿', notification.photo %>にコメントしました。
+          <% when 'thanks' %>
+            <%= link_to 'あなたのコメント', comments_photo_path(notification.photo) %>にサンクスしました。
+          <% end %>
+        </span>
+      </div>
+      <div class="col-2">
+        <%= link_to "削除", notification_path(notification), class: "btn btn-sm btn-danger bagde-pill", style: "margin-top: 20px;", method: :delete, "data-confirm" => "通知を削除します。よろしいですか？"%>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= paginate @notifications %>
+
+
+

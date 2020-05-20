@@ -5,6 +5,7 @@ class Users::CommentsController < ApplicationController
   	comment.user_id = current_user.id
   	comment.photo_id = photo.id
   	comment.save
+    photo.create_notification_comment!(current_user, comment.id)
   	redirect_to photo_comments_path
   end
 
@@ -17,6 +18,7 @@ class Users::CommentsController < ApplicationController
   def update
   	@comment = Comment.find_by(photo_id: params[:photo_id], id: params[:id])
   	@comment.update_attributes(thanks: params[:thanks])
+    @comment.create_notification_thanks!(current_user)
   end
 
   private

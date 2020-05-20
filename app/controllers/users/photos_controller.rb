@@ -2,10 +2,10 @@ class Users::PhotosController < ApplicationController
   impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def index
-    @photos = Photo.order(created_at: "DESC")
+    @photos = Photo.all
     @user = User.find(current_user.id)
     if params[:tag_name]
-      @photos = Photo.tagged_with("#{params[:tag_name]}").order(created_at: "DESC")
+      @photos = Photo.tagged_with("#{params[:tag_name]}")
     end
   end
 
