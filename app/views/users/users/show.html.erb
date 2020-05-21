@@ -1,65 +1,63 @@
-<div class="row">
-	<div class="col-md-12">
+<div class="row d-inline-block" style="padding: 0 10px;">
+	<div class="col-md-12 title">
 		<h3><%= @name %>の投稿一覧</h3>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-4 col-lg-4 col-xl-3">
-
-		<div class="row">
-			<div class="col-12 photo" style="width: 100%;">
-				<%= attachment_image_tag @user, :image, :fill, 300, 200, fallback: 'no_image.jpg', size: '300x200' %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<%= "#{@user.last_name}#{@user.first_name}" %>　<%= "(#{@user.read_last_name}#{@user.read_first_name})" %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-11" style="margin: 0 auto; height: auto;">
-				<%= @user.introduction %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="follow_counts_<%= @user.id %>">
-					<%= render partial: 'users/relationships/follow_counts', locals: { user: @user} %>
+	<div class="col-md-5 col-lg-4 col-xl-3">
+		<div class="sidebar_fixed side">
+			<span class="side_title">プロフィール</span>
+			<div class="row" style="margin: 10px 0;">
+				<div class="col-12" style="text-align: center;">
+				<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', class: "radius" %>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12" style="text-align: right;">
-				<% if @user != current_user %>
-					<div class="follows_buttons_<%= @user.id %>">
-						<%= render partial: 'users/relationships/follow_button', locals: { user: @user} %>
+			<div class="row">
+				<div class="col-12 over-text" style="text-align: center;">
+					<strong><%= "#{@user.last_name}#{@user.first_name}" %>　<%= "(#{@user.read_last_name}#{@user.read_first_name})" %></strong>
+				</div>
+			</div>
+			<div class="row" style="margin: 10px 0;">
+				<div class="col-12" style="height: auto;">
+					<h6><%= @user.introduction %></h6>
+				</div>
+			</div>
+					<div class="follow_counts_<%= @user.id %>">
+						<%= render partial: 'users/relationships/follow_counts', locals: { user: @user} %>
 					</div>
-				<% else %>
-					<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", style: "width:120px;" do %>
-						<i class="fas fa-wrench"></i>
-					<% end %>
-					<%= link_to notifications_path do %>
-						<% if notifications_count > 0 %>
-							<span class="fa-stack">
-								<i class="fas fa-bell fa-stack-2x"></i>
-								<span class="fa-stack fa-stack-1x counter"><%= @notifications %></span>
-							</span>
-						<% else %>
-							<span class="fa-stack">
-								<i class="fas fa-bell fa-stack-2x"></i>
-							</span>
+			<div class="row">
+				<div class="col-12" style="text-align: right;">
+					<% if @user != current_user %>
+						<div class="follows_buttons_<%= @user.id %>">
+							<%= render partial: 'users/relationships/follow_button', locals: { user: @user} %>
+						</div>
+					<% else %>
+						<%= link_to edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", style: "width:120px;" do %>
+							<i class="fas fa-wrench"></i>
+						<% end %>
+						<%= link_to notifications_path do %>
+							<% if notifications_count > 0 %>
+								<span class="fa-stack">
+									<i class="fas fa-bell fa-stack-2x"></i>
+									<span class="fa-stack fa-stack-1x counter"><%= @notifications %></span>
+								</span>
+							<% else %>
+								<span class="fa-stack">
+									<i class="fas fa-bell fa-stack-2x"></i>
+								</span>
+							<% end %>
 						<% end %>
 					<% end %>
-				<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="col-md-8 col-lg-8 col-xl-9">
+	<div class="col-md-7 col-lg-8 col-xl-9" style="overflow: hidden;">
 		<% @photos.each do |photo| %>
 			<%= link_to photo_path(photo.id), style: "color: black;" do %>
-				<div class="col-md-12 col-lg-5 col-xl-3 frame">
+				<div class="col-md-12 col-lg-6 col-xl-4 float-left">
 					<div class="row">
 						<div class="col-12">
 							<%= attachment_image_tag photo, :image, :fill, 300, 200 %>
@@ -89,7 +87,7 @@
 				</div>
 			<% end %>
 		<% end %>
-		<%= paginate @photos %>
-	</div>
+<div style="clear: both;">
+<%= paginate @photos %></div>
 
 </div>

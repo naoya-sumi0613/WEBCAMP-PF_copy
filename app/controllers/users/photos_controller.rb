@@ -1,5 +1,5 @@
 class Users::PhotosController < ApplicationController
-  impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
+  impressionist :actions => [:show], :unique => [:impressionable_id, :user_id]
 
   def index
     @photos = Photo.all

@@ -1,42 +1,80 @@
-<h2>Sign up</h2>
+<!-- ロゴにする予定 -->
+<div class="row">
+  <div class="col-12" style="text-align: center;">
+    <h1>Flip Flap</h1>
+    <h3>新規登録</h3>
+  </div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-12">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.text_field :last_name, placeholder: "姓"  %>
+<div class="form-row">
+  <div class="col-6">
+    <div class="field">
+      <%= f.text_field :last_name, placeholder: "姓", class: "form-control", style: "max-width: 250px; margin-left: auto;" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :first_name, placeholder: "名"  %>
+  <div class="col-6">
+    <div class="field">
+      <%= f.text_field :first_name, placeholder: "名", class: "form-control", style: "max-width: 250px;"  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.hidden_field :full_name, :value => "#{:last_name}#{:first_name}"  %>
+</div>
+<div class="field">
+<%= f.hidden_field :full_name, :value => "#{:last_name}#{:first_name}"  %>
+</div>
+<div class="form-row">
+  <div class="col-6">
+    <div class="field">
+      <%= f.text_field :read_last_name, placeholder: "セイ", class: "form-control", style: "max-width: 250px; margin-left: auto;"  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :read_last_name, placeholder: "セイ"  %>
+  <div class="col-6">
+    <div class="field">
+      <%= f.text_field :read_first_name, placeholder: "メイ", class: "form-control", style: "max-width: 250px;"  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :read_first_name, placeholder: "メイ"  %>
+</div>
+<div class="field">
+<%= f.hidden_field :read_full_name, :value => "#{:read_last_name}#{:read_first_name}" %>
+</div>
+<div class="form-row">
+  <div class="col-12">
+    <div class="field">
+      <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control", style: "max-width: 510px; margin: auto;" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.hidden_field :read_full_name, :value => "#{:read_last_name}#{:read_first_name}" %>
+</div>
+<div class="form-row">
+  <div class="col-12">
+    <div class="field">
+      <%= f.password_field :password, placeholder: "パスワード(6文字以上)", class: "form-control", style: "max-width: 510px; margin: auto;" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.email_field :email, placeholder: "メールアドレス" %>
+</div>
+<div class="form-row">
+  <div class="col-12">
+    <div class="field">
+      <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)", class: "form-control", style: "max-width: 510px; margin: auto;" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.password_field :password, placeholder: "パスワード(6文字以上)" %>
+</div>
+<div class="form-row">
+  <div class="col-12">
+    <div class="actions">
+      <%= f.submit '新規登録', class: "btn btn-success btn-block", style: "max-width: 510px; margin: auto;" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
+</div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class="form-row">
+  <div class="col-12">
+    <%= render "users/shared/links" %>
+  </div>
+</div>
