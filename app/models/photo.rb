@@ -2,6 +2,10 @@ class Photo < ApplicationRecord
 	default_scope -> { order(created_at: :desc)}
   enum range: { 全ユーザー: 0, フォロワーのみ: 1, 自分のみ: 2 }
 
+  validates :image, presence: { message: "を選択してください"}
+  validates :word, presence: true, length: { maximum: 30}
+  validates :range, presence: { message: "を選択してください"}
+
 	belongs_to :user
 	has_many :comments, dependent: :destroy
 	has_many :likes, dependent: :destroy

@@ -5,8 +5,11 @@ class Users::ContactsController < ApplicationController
 
   def create
   	@contact = Contact.new(contact_params)
-  	@contact.save
-  	redirect_to action: :done
+  	if @contact.save
+  	  redirect_to action: :done
+    else
+      render 'new'
+    end
   end
 
   def done

@@ -16,8 +16,11 @@ class Users::PhotosController < ApplicationController
   def create
   	@photo = Photo.new(photo_params)
   	@photo.user_id = current_user.id
-  	@photo.save
-  	redirect_to photo_path(@photo.id)
+  	if @photo.save
+  	  redirect_to photo_path(@photo.id)
+    else
+      render 'new'
+    end
   end
 
   def show

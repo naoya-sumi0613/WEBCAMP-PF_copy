@@ -2,3 +2,28 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d"
+
+  activerecord:
+    models:
+      user: ユーザー
+      photo: 写真
+      comment: コメント
+      contact: お問い合わせ
+    attributes:
+      user:
+        last_name: 姓
+        first_name: 名
+        read_last_name: セイ
+        read_first_name: メイ
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        introduction: 自己紹介文
+      photo:
+        image: 写真
+        word: 一言
+        range: 公開範囲
+      comment:
+        comment: コメント
+      contact:
+        content: 本文

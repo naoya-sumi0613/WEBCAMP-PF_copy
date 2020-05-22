@@ -2,10 +2,27 @@
 <h1>Flip Flap</h1>
 
 <h4>お問い合わせ</h4>
+<%= render "users/shared/error_messages", resource: @contact %>
 
 <%= form_with model: @contact, local: true do |f| %>
-<%= f.text_field :title, placeholder: "件名" %>
-<%= f.text_field :content, placeholder: "内容" %>
+<%= f.text_field :title, placeholder: "件名", class: "form-control" %>
+<%= f.text_field :content, placeholder: "本文", class: "form-control", id: "input-text" %>
+<p style="text-align: right;" id="counter">0/150</p>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.submit "送信" %>
 <% end %>
+
+
+<script type="text/javascript">
+
+  $(function(){
+  $("#input-text").on("keyup", function() {
+    let countNum = String($(this).val().length);
+    if(countNum>30){
+      $("#counter").text(countNum + "/150").css("color", "red");
+    }else {
+      $("#counter").text(countNum + "/150").css("color", "");
+    }
+ });
+});
+</script>

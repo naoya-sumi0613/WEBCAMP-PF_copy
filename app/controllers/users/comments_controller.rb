@@ -1,12 +1,16 @@
 class Users::CommentsController < ApplicationController
   def create
-  	photo = Photo.find(params[:photo_id])
-  	comment = Comment.new(comment_params)
-  	comment.user_id = current_user.id
-  	comment.photo_id = photo.id
-  	comment.save
-    photo.create_notification_comment!(current_user, comment.id)
-  	redirect_to photo_comments_path
+  	@photo = Photo.find(params[:photo_id])
+  	@comment = Comment.new(comment_params)
+  	@comment.user_id = current_user.id
+  	@comment.photo_id = @photo.id
+  	if @comment.save
+      @photo.create_notification_comment!(current_user, comment.id)
+  	  redirect_to photo_comments_path
+    else
+      @user = User.find(@photo.user_id)
+      render 'users/photos/show'
+    end
   end
 
   def destroy

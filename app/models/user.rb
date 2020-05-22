@@ -1,6 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  validates :last_name, presence: true, length: {maximum: 10}
+  validates :first_name, presence: true, length: {maximum: 10}
+  validates :read_last_name, presence: true, length: {maximum: 20}, format: {with: /[\p{katakana}　ー－]+/, allow_blank: true}
+  validates :read_first_name, presence: true, length: {maximum: 20}, format: {with: /[\p{katakana}　ー－]+/, allow_blank: true}
+  validates :introduction, length: {maximum: 100}
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

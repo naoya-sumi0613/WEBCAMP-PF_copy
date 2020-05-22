@@ -10,13 +10,16 @@ class Users::UsersController < ApplicationController
   end
 
   def edit
-  	@user = User.find(current_user.id)
+  	@user = User.find(params[:id])
   end
 
   def update
   	@user = User.find(params[:id])
-  	@user.update(user_params)
-  	redirect_to user_path(params[:id])
+  	if @user.update(user_params)
+  	  redirect_to user_path(params[:id])
+    else
+      render "edit"
+    end
   end
 
   def retire

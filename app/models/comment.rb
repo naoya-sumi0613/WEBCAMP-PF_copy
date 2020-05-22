@@ -1,5 +1,7 @@
 class Comment < ApplicationRecord
 
+  validates :comment, presence: true, length: { maximum: 50}
+
   belongs_to :photo
   belongs_to :user
   has_many :notifications, dependent: :destroy

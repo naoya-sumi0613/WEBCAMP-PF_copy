@@ -1,12 +1,12 @@
 <div class="row" style="padding: 5px 0; margin: auto; width: 90%; border-top: solid 1px gray;">
-<div class="col-6" style="text-align: center;">
-<%= link_to follow_user_path, style: "color: black; text-decoration: none;"  do %>
-  <%= user.follower.count %><span style="font-size: 10px;"> フォロー</span>
-<% end %>
-</div>
-<div class="col-6" style="text-align: center;">
- <%= link_to follower_user_path, style: "color: black; text-decoration: none;" do %>
-  <%= user.followed.count %><span style="font-size: 10px;"> フォロワー</span>
-<% end %>
-</div>
+  <div class="col-6" style="text-align: center;">
+    <%= link_to follow_user_path, style: "color: black; text-decoration: none;"  do %>
+      <%= user.follower.count %><span style="font-size: 10px;"> フォロー</span>
+    <% end %>
+  </div>
+  <div class="col-6" style="text-align: center;">
+    <%= link_to follower_user_path, style: "color: black; text-decoration: none;" do %>
+      <%= user.followed.count %><span style="font-size: 10px;"> フォロワー</span>
+    <% end %>
+  </div>
 </div>
