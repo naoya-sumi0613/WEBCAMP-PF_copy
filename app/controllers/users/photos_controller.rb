@@ -1,4 +1,6 @@
 class Users::PhotosController < ApplicationController
+  before_action :authenticate_user!
+
   impressionist :actions => [:show], :unique => [:impressionable_id, :user_id]
 
   def index
