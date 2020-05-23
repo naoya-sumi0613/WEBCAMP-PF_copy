@@ -46,7 +46,7 @@
     font-size: 1.4em;
 }
 .flipflap:hover {
-    color: black;
+    color: ivory;
 }
 
 body {
@@ -56,4 +56,8 @@ body {
 .sidebar_fixed {
   position: sticky;
   top: 60px;
+}
+
+.form-row {
+  margin-top: 10px;
 }

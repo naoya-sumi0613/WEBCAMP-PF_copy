@@ -4,7 +4,7 @@ class Users::PhotosController < ApplicationController
   impressionist :actions => [:show], :unique => [:impressionable_id, :user_id]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.page(params[:page]).per(12)
     @user = User.find(current_user.id)
     if params[:tag_name]
       @photos = Photo.tagged_with("#{params[:tag_name]}")

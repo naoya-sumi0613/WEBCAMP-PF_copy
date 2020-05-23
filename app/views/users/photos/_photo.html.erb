@@ -1,28 +1,27 @@
 <%= link_to photo_path(photo.id), style: "color: black;" do %>
-        <div class="col-md-12 col-lg-5 col-xl-3 photo" style="display: inline-block; margin-right: 6%; margin-bottom: 5%; padding-bottom: 3%; border: solid 1px;">
-          <div class="row">
-            <%= attachment_image_tag photo, :image, :fill, 300, 200 %>
-          </div>
-          <div class="row" style="margin-top: 1%;">
-            <div class="col-12">
-              <%= l photo.created_at %>
-            </div>
-          </div>
-          <div class="row" style="margin-top: 1%;">
-            <div class="col-12">
-              <%= photo.word.truncate(13) %>
-            </div>
-          </div>
-          <div class="row" style="margin-top: 1%;">
-            <div class="col-4 photo text" style="text-align: left; padding-left: 10%;">
-              <i class="far fa-heart">:<%= photo.likes.count %></i>
-            </div>
-            <div class="col-4 photo text" style="text-align: center;">
-              <i class="far fa-comments">:<%= photo.comments.count %></i>
-            </div>
-            <div class="col-4 photo text" style="text-align: right; padding-right: 10%;">
-              <i class="far fa-eye">:<%= photo.impressions_count %></i>
-            </div>
-          </div>
+  <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 float-left frame">
+    <div class="picture" style="margin: auto;">
+      <div class="row">
+        <div class="col-12">
+          <%= attachment_image_tag photo, :image, :fill, 300, 200 %>
         </div>
-      <% end %>
+      </div>
+      <div class="row" style="margin-top: 3px;">
+        <div class="col-12 over-text">
+          <%= l photo.created_at %>　<%= photo.word %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4" style="text-align: left; padding-left: 10%;">
+          <i class="far fa-heart">:<%= photo.likes.count %></i>
+        </div>
+        <div class="col-4" style="text-align: center;">
+          <i class="far fa-comments">:<%= photo.comments.count %></i>
+        </div>
+        <div class="col-4" style="text-align: right; padding-right: 10%;">
+          <i class="far fa-eye">:<%= photo.impressions_count %></i>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

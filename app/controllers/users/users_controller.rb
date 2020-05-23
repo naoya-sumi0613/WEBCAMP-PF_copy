@@ -1,9 +1,10 @@
 class Users::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit]
 
   def show
   	@user = User.find(params[:id])
-    @photos = Photo.where(user_id: params[:id]).order(created_at: "DESC").page(params[:page]).per(6)
+    @photos = Photo.where(user_id: params[:id]).page(params[:page]).per(12)
   	if @user == current_user
   		@name = "あなた"
   	else
@@ -45,5 +46,12 @@ class Users::UsersController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:image, :last_name, :first_name, :read_last_name, :read_first_name, :email, :introduction)
+  end
+
+  def correct_user
+    user = User.find(params[:id])
+    if current_user != user
+      redirect_to user_path(current_user)
+    end
   end
 end
