@@ -5,7 +5,7 @@ class Users::CommentsController < ApplicationController
   	@comment.user_id = current_user.id
   	@comment.photo_id = @photo.id
   	if @comment.save
-      @photo.create_notification_comment!(current_user, comment.id)
+      @photo.create_notification_comment!(current_user, @comment.id)
   	  redirect_to photo_comments_path
     else
       @user = User.find(@photo.user_id)
