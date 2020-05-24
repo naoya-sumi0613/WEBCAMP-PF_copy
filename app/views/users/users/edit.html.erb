@@ -1,70 +1,71 @@
+<div class="row d-inline-block" style="padding: 0 10px;">
+  <div class="col-md-12 title">
+    <h3>ユーザー情報変更</h3>
+  </div>
+</div>
+
 <div class="row">
-	<div class="col-12">
-		<h3>ユーザー情報変更</h3>
+  <div class="col-12" style="max-width: 992px; margin: auto;">
     <%= render "users/shared/error_messages", resource: @user %>
-	</div>
+  </div>
 </div>
 
 <%= form_with model: @user, local: true do |f| %>
+  <div class="row" style="max-width: 992px; margin: 15px auto;">
+    <div class="col-md-6">
+      <label>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', id: 'img_prev', class: "radius" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-10 btn btn-primary btn-md" style="margin: auto; margin-top: 20px;">
+            画像選択<%= f.attachment_field :image, style: 'display: none;', id:'user_img' %>
+          </div>
+        </div>
+      </label>
+    </div>
 
-	<div class="row">
-		<div class="col-sm-8 col-md-6 col-lg-4">
-			<label>
-				<div class="row">
-					<div class="col-12">
-
-						<%= attachment_image_tag @user, :image, :fill, 300, 200, fallback: 'no_image.jpg', size: '300x200', id: 'img_prev' %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-10 btn btn-primary btn-md" style="margin: 20px auto;">
-						画像選択<%= f.attachment_field :image, style: 'display: none;', id:'user_img' %>
-					</div>
-				</div>
-			</label>
-		</div>
-
-		<div class="col-md-6 col-lg-4">
-		<!-- ↑余裕があればpositionで設定 -->
-
-			<div class="form-row">
-				<div class="col-6">
-					<%= f.text_field :last_name, placeholder: "姓", class: "form-control" %>
-				</div>
-				<div class="col-6">
-					<%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="col-6">
-					<%= f.text_field :read_last_name, placeholder: "セイ", class: "form-control" %>
-				</div>
-				<div class="col-6">
-					<%= f.text_field :read_first_name, placeholder: "メイ", class: "form-control" %>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="col-12">
-					<%= f.email_field :email, placeholder: "メールアドレス", class: "form-control" %>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="col-12">
-					<%= f.text_area :introduction, placeholder: "自己紹介文(１００文字以内)", class: "form-control", id: "input-text", rows: "6" %>
+    <div class="col-md-6 align-self-end">
+      <div class="form-row">
+        <div class="col-6">
+          <%= f.text_field :last_name, placeholder: "姓", class: "form-control" %>
+        </div>
+        <div class="col-6">
+          <%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-6">
+          <%= f.text_field :read_last_name, placeholder: "セイ", class: "form-control" %>
+        </div>
+        <div class="col-6">
+          <%= f.text_field :read_first_name, placeholder: "メイ", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-12">
+          <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-12">
+          <%= f.text_area :introduction, placeholder: "自己紹介文(１００文字以内)", class: "form-control", id: "input-text", rows: "6" %>
           <p style="text-align: right;" id="counter">0/100</p>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="col-8">
-					<%= f.submit '更新する', class: "btn btn-success", style: "width: 100%" %>
-				</div>
-				<div class="col-4">
-					<%= link_to '退会', retire_user_path, class: "btn btn-danger", style: "width: 100%" %>
-				</div>
-			</div>
-		</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-8">
+          <%= f.submit '更新する', class: "btn btn-success", style: "width: 100%" %>
+        </div>
+        <div class="col-4">
+          <%= link_to '退会', retire_user_path, class: "btn btn-danger", style: "width: 100%" %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-
 
 
 <script type="text/javascript">

@@ -6,8 +6,10 @@ class Users::PhotosController < ApplicationController
   def index
     @photos = Photo.page(params[:page]).per(12)
     @user = User.find(current_user.id)
+    @name = "投稿一覧"
     if params[:tag_name]
       @photos = Photo.tagged_with("#{params[:tag_name]}").page(params[:page]).per(12)
+      @name = "”#{params[:tag_name]}”一覧"
     end
   end
 
