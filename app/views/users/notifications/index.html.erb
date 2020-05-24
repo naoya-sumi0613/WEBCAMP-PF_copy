@@ -1,8 +1,10 @@
-<div class="row" style="max-width: 768px;">
-  <div class="col-9">
+<div class="row d-inline-block" style="padding: 0 10px;">
+  <div class="col-md-12 title">
     <h3>通知一覧</h3>
   </div>
-  <div class="col-3" style="padding-top: 15px;">
+</div>
+<div class="row">
+  <div class="col-12" style="text-align: right; max-width: 768px;">
     <%= link_to notifications_path, method: :delete, "data-confirm" => "通知を全件削除します。よろしいですか？", style: "color: black;" do %>
       <i class="far fa-trash-alt">全削除</i>
     <% end %>
@@ -13,15 +15,18 @@
   <% if notification.visited_id.nil? %>
     <p>通知はありません</p>
   <% else %>
-    <div class="row" style="max-width: 768px;">
-      <div class="col-10">
+    <div class="row box" style="max-width: 768px; font-size: 13px; margin-bottom: 5px;">
+      <div class="col-2" style="max-width: 80px; margin: auto;">
+        <%= link_to user_path(notification.visitor) do %>
+          <%= attachment_image_tag notification.visitor, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100', style: "border-radius: 50%;" %>
+        <% end %>
+      </div>
+      <div class="col-7" style="margin: auto;">
         <span>
           <%= link_to user_path(notification.visitor) do %>
-            <%= attachment_image_tag notification.visitor, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100', class: "radius", style: "max-width: 20px;" %>
             <%= "#{notification.visitor.last_name}" "#{notification.visitor.first_name}" %>
           <% end %>
           さんが
-
           <% case notification.action %>
           <% when 'follow' %>
             <%= 'あなたをフォローしました。' %>
@@ -34,8 +39,8 @@
           <% end %>
         </span>
       </div>
-      <div class="col-2">
-        <%= link_to "削除", notification_path(notification), class: "btn btn-sm btn-danger bagde-pill", style: "margin-top: 20px;", method: :delete, "data-confirm" => "通知を削除します。よろしいですか？"%>
+      <div class="col-3" style="margin: auto;">
+        <%= link_to "削除", notification_path(notification), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "通知を削除します。よろしいですか？"%>
       </div>
     </div>
   <% end %>

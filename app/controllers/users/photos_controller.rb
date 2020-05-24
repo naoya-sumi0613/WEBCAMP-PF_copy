@@ -45,12 +45,12 @@ class Users::PhotosController < ApplicationController
 
   def likes
     @photo = Photo.find(params[:id])
-    @likes = Like.where(photo_id: @photo.id)
+    @likes = Like.where(photo_id: @photo.id).page(params[:page]).per(10)
   end
 
   def comments
     @photo = Photo.find(params[:id])
-    @comments = Comment.where(photo_id: @photo.id)
+    @comments = Comment.where(photo_id: @photo.id).page(params[:page]).per(10)
   end
 
   def photo_params

@@ -1,3 +1,48 @@
 // Place all the styles related to the users/Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title {
+  padding: 1em 1em;
+  margin: 1em 0;
+  background: #f4f4f4;
+  border-left: solid 6px #5bb7ae;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+
+.title h3 {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  font-size: 20px;
+}
+
+.line {
+  border-bottom: solid 1px gray;
+  border-top: solid 1px gray;
+}
+
+.radius {
+  border-radius: 50%;
+  margin: 5px 0;
+  width: 65%;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+
+}
+
+.box {
+  margin-left: 50px;
+  background: #dbffdb;
+  border: solid 3px #5bb7ae;
+  border-radius: 25px;
+}
+@media screen and (max-width:900px) {
+  .box {
+    margin: auto;
+  }
+}
