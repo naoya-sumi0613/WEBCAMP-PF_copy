@@ -7,7 +7,7 @@ class Users::PhotosController < ApplicationController
     @photos = Photo.page(params[:page]).per(12)
     @user = User.find(current_user.id)
     if params[:tag_name]
-      @photos = Photo.tagged_with("#{params[:tag_name]}")
+      @photos = Photo.tagged_with("#{params[:tag_name]}").page(params[:page]).per(12)
     end
   end
 

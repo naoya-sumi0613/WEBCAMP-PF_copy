@@ -32,7 +32,6 @@ img {
   max-width: 100%;
   width: 100%;
   height: auto;
-
 }
 
 .box {
@@ -45,4 +44,18 @@ img {
   .box {
     margin: auto;
   }
+}
+
+.picture_stop {
+  padding:7px;
+  border:1px solid #ccc;
+  background:#fff;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+}
+
+.show_box {
+  margin: auto;
+  background: #dbffdb;
+  border: solid 3px #5bb7ae;
+  border-radius: 25px;
 }
