@@ -4,10 +4,30 @@
   </div>
   <div class="col-12" style="font-size: 20px;">
     <ul>
-      <li>ユーザー数〇人</li>
-      <li>本日の新規ユーザー数〇人</li>
-      <li>投稿件数〇件</li>
-      <li>本日の投稿件数〇件</li>
+      <li>
+        全ユーザー数
+        <%= link_to admins_users_path do %>
+          <%= @users.count %> 人
+        <% end %>
+      </li>
+      <li>
+        本日の新規ユーザー数
+        <%= link_to admins_users_path(created_at: Time.zone.now.all_day) do %>
+          <%= @users_today.count %> 人
+        <% end %>
+      </li>
+      <li>
+        全投稿件数
+        <%= link_to admins_photos_path do %>
+          <%= @photos.count %> 件
+        <% end %>
+      </li>
+      <li>
+        本日の投稿件数
+        <%= link_to admins_photos_path(created_at: Time.zone.now.all_day) do %>
+          <%= @photos_today.count %> 件
+        <% end %>
+      </li>
       <li>未対応お問い合わせ件数〇件</li>
     </ul>
   </div>

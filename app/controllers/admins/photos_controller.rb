@@ -1,10 +1,14 @@
 class Admins::PhotosController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @photos = Photo.page(params[:page]).per(12)
     @name = "投稿一覧"
     if params[:tag_name]
       @photos = Photo.tagged_with("#{params[:tag_name]}").page(params[:page]).per(12)
       @name = "”#{params[:tag_name]}”一覧"
+    elsif params[:created_at]
+      @photos = Photo.where(created_at: Time.zone.now.all_day).page(params[:page]).per(12)
+      @name = "本日の新規投稿一覧"
     end
   end
 
