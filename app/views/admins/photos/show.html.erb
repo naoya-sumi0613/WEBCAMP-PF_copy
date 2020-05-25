@@ -1,0 +1,63 @@
+<div class="row d-inline-block" style="padding: 0 10px;">
+  <div class="col-md-12 title">
+    <h3>投稿詳細</h3>
+  </div>
+</div>
+
+<div class="row" style="max-width: 992px; margin: 15px auto;">
+  <div class="col-md-6">
+    <div class="show_box" style="font-size: 14px;">
+      <%= link_to admins_user_path(@user), style: "color: black; text-decoration: none;" do %>
+        <div class="row" style="width: 95%; border-bottom: solid 1px gray; margin: auto; padding: 10px 0;">
+          <div class="col-3" style="max-width: 70px;">
+            <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: 'no_image.jpg', size: '100x100', style: "border-radius: 50%;" %>
+          </div>
+          <div class="col-9 over-text" style="margin: auto 0;">
+            <%= "#{@user.last_name}#{@user.first_name}" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="row" style="margin: 15px auto;">
+        <div class="col-12">
+          <%= attachment_image_tag @photo, :image, class: "picture_stop" %>
+        </div>
+      </div>
+      <div class="row" style="margin: auto; font-size: 11px;">
+        <div class="col-12">
+          <%= l @photo.created_at %>
+        </div>
+      </div>
+      <div class="row" style="margin: auto; padding-top: 1px; padding-bottom: 20px;">
+        <div class="col-12">
+          <%= @photo.word %>
+        </div>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col">
+          <span>タグ <i class="far fa-hand-point-right"></i> </span>
+            <% @photo.tag_list.each do |tag| %>
+              <%= link_to admins_photos_path(tag_name: tag), class: "text-white btn btn-info btn-sm p-0 m-1" do %>
+                <%= tag %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+      <div class="row" style="padding: 5px 0; border-top: solid 1px gray; margin: auto; width: 95%;">
+        <div class="col-4" style="text-align: center;">
+          <i class="far fa-heart">:<%= @photo.likes.count %></i>
+        </div>
+        <div class="col-4" style="text-align: center;">
+            <i class="far fa-comments">:<%= @photo.comments.count %></i>
+        </div>
+        <div class="col-4" style="text-align: center;">
+          <i class="far fa-eye">:<%= @photo.impressions_count %></i>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <%= link_to '投稿削除', admins_photo_path(@photo), method: :delete, "data-confirm" => "投稿を削除します。よろしいですか？", class: "btn btn-danger", style: "margin: 10px 0;" %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

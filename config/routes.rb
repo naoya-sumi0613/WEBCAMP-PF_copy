@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'users/homes#top'
   devise_for :admins
 
-
   scope module: :users do
   	devise_for :users, controllers: {
   		sessions: 'users/sessions',
@@ -35,6 +34,9 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'home/top'
     resources :users, only: [:index, :show, :destroy]
+    resources :photos, only: [:index, :show, :destroy]
+    delete "contacts" => "contacts#destroy_all"
+    resources :contacts, only: [:index, :destoy, :show, :update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

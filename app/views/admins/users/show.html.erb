@@ -34,7 +34,33 @@
 
   <div class="col-md-7 col-lg-8 col-xl-9">
     <% @photos.each do |photo| %>
-        <%= render partial: 'users/photos/photo', locals: { photo: photo} %>
+      <%= link_to admins_photo_path(photo.id), style: "color: black;" do %>
+        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 float-left frame">
+          <div class="picture" style="margin: auto;">
+            <div class="row">
+              <div class="col-12">
+                <%= attachment_image_tag photo, :image, :fill, 300, 200 %>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 3px;">
+              <div class="col-12 over-text">
+                <%= l photo.created_at %>　<%= photo.word %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4" style="text-align: left; padding-left: 10%;">
+                <i class="far fa-heart">:<%= photo.likes.count %></i>
+              </div>
+              <div class="col-4" style="text-align: center;">
+                <i class="far fa-comments">:<%= photo.comments.count %></i>
+              </div>
+              <div class="col-4" style="text-align: right; padding-right: 10%;">
+                <i class="far fa-eye">:<%= photo.impressions_count %></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
     <div style="clear: both;">
       <%= paginate @photos %>
