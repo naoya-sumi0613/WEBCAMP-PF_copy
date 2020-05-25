@@ -16,7 +16,7 @@
       <label>
         <div class="row">
           <div class="col-12" style="text-align: center;">
-            <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', id: 'img_prev', class: "radius" %>
+            <%= attachment_image_tag @user, :image, fallback: 'no_image.jpg', id: 'img_prev', style: "border-radius: 50%; width: 300px; height: 300px; margin: auto;" %>
           </div>
         </div>
         <div class="row">

@@ -39,6 +39,18 @@
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+@media screen and (max-width:768px) {
+  .navbar-brand {
+    padding-left: 50px;
+  }
+}
+@media screen and (max-width:768px) {
+  .admin_top {
+    padding-left: 0;
+    margin: auto;
+  }
+}
+
 .flipflap {
     font-family: 'Lobster', cursive;
     letter-spacing: 0.1em;

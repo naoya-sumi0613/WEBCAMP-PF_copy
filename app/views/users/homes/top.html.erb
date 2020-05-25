@@ -1,13 +1,16 @@
-
-<!-- ロゴにする予定 -->
-<h1>Flip Flap</h1>
-
-<div style="width: 50%; height: 100px; border: solid 3px black;">
-<p>文章</p>
-あいうえお</br>
-kakikukeko</br>
+<div class="row" style="margin: 20px 0;">
+  <div class="col-12" style="text-align: center;">
+    <h1 class="flipflap" style="color: black; font-size: 70px;">Flip Flap</h1>
+  </div>
 </div>
 
-<%= link_to 'Flip Flapとは？', homes_about_path %>
-<%= link_to 'ログイン', new_user_session_path %>
-<%= link_to '新規登録', new_user_registration_path %>
+<div class="row" style="margin: auto;">
+  <div class="col-sm-8 col-md-7 col-lg-5" style="margin: auto; background-color: white; border: solid 1px black;">
+    <p style="margin: auto; width: 80%; text-align: center; font-size: 30px; border-bottom: solid 2px black; padding: 5px 0;">INDEX</p>
+    <div style="font-size: 20px; margin-top: 20px;">
+      <p>1. <%= link_to 'Flip Flapとは？', homes_about_path, style: "color:black; text-decoration:none;" %></p>
+      <p>2.<%= link_to 'ログイン', new_user_session_path, style: "color:black; text-decoration:none;" %></p>
+      <p>3.<%= link_to '新規登録', new_user_registration_path, style: "color:black; text-decoration:none;" %></p>
+    </div>
+  </div>
+</div>

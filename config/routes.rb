@@ -31,5 +31,11 @@ Rails.application.routes.draw do
     get 'contacts/done' => "contacts#done"
   end
 
+
+  namespace :admins do
+    get 'home/top'
+    resources :users, only: [:index, :show, :destroy]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
