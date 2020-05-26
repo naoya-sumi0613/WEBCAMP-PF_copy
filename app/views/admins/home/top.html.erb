@@ -28,7 +28,12 @@
           <%= @photos_today.count %> 件
         <% end %>
       </li>
-      <li>未対応お問い合わせ件数〇件</li>
+      <li>
+        未対応お問い合わせ件数
+        <%= link_to admins_contacts_path do %>
+          <%= @contacts.count %> 件
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

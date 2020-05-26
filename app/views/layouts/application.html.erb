@@ -18,7 +18,9 @@
       </nav>
     <% else %>
       <nav class="navbar navbar-expand-md sticky-top" style="background-color: #ff8c00">
-        <a class="navbar-brand flipflap" href="#" style="margin: 0 auto;">Flip Flap</a>
+        <span id="top" style="margin: 0 auto;">
+          <a class="navbar-brand flipflap" href="#">Flip Flap</a>
+        </span>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -78,7 +80,7 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to new_contacts_path, class: "nav-link" do %>
+                <%= link_to admins_contacts_path, class: "nav-link" do %>
                   <i class="fas fa-envelope"> お問い合わせ</i>
                 <% end %>
               </li>

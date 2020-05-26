@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
     resources :photos, only: [:index, :show, :destroy]
     delete "contacts" => "contacts#destroy_all"
-    resources :contacts, only: [:index, :destoy, :show, :update]
+    resources :contacts, only: [:index, :destroy, :show, :update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

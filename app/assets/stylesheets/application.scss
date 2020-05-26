@@ -16,7 +16,7 @@
 
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
 
 .navbar-nav {
 	.nav-link {
@@ -39,9 +39,9 @@
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
   .navbar-brand {
-    padding-left: 50px;
+    padding-left: 72px;
   }
 }
 @media screen and (max-width:768px) {
@@ -52,10 +52,10 @@
 }
 
 .flipflap {
-    font-family: 'Lobster', cursive;
-    letter-spacing: 0.1em;
+    font-family: 'Playball', cursive;
+    letter-spacing: 0.03em;
     color: ivory;
-    font-size: 1.4em;
+    font-size: 1.5em;
 }
 .flipflap:hover {
     color: ivory;

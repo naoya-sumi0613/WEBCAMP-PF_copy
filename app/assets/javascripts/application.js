@@ -18,3 +18,14 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(function() {
+
+  $('#top a').on('click',function(){
+    $('body, html').animate({
+      scrollTop:0
+    }, 1000);
+      return false;
+  });
+
+});
