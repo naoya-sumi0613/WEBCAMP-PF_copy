@@ -60,21 +60,11 @@
 	</div>
 
 	<div class="col-md-7 col-lg-8 col-xl-9 photo">
-		<% @photos.each do |photo| %>
-			<% if photo.range == "全ユーザー" %>
-				<%= render partial: 'users/photos/photo', locals: { photo: photo} %>
-			<% elsif photo.range == "フォロワーのみ" %>
-				<% if current_user.following?(photo.user) || photo.user.id == current_user.id %>
-					<%= render partial: 'users/photos/photo', locals: { photo: photo} %>
-				<% end %>
-			<% else %>
-				<% if photo.user.id == current_user.id %>
-					<%= render partial: 'users/photos/photo', locals: { photo: photo} %>
-				<% end %>
-			<% end %>
+		<% @photos_array.each do |photo| %>
+			<%= render partial: 'users/photos/photo', locals: { photo: photo} %>
 		<% end %>
 		<div style="clear: both;">
-      <%= paginate @photos %>
+			<%= paginate @photos_array %>
     </div>
 	</div>
 </div>

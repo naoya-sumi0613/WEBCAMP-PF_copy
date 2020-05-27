@@ -4,12 +4,30 @@ class Users::UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @photos = Photo.where(user_id: params[:id]).page(params[:page]).per(12)
+    @array = []
+    @photos = Photo.where(user_id: params[:id])
+
   	if @user == current_user
   		@name = "あなた"
   	else
   		@name = "#{@user.last_name}#{@user.first_name}さん"
   	end
+
+    @photos.each do |photo|
+      if photo.range == "全ユーザー"
+        @array.push(photo)
+      elsif photo.range == "フォロワーのみ"
+        if current_user.following?(photo.user) || photo.user.id == current_user.id
+          @array.push(photo)
+        end
+      else
+        if photo.user.id == current_user.id
+          @array.push(photo)
+        end
+      end
+    end
+
+    @photos_array = Kaminari.paginate_array(@array).page(params[:page]).per(12)
   end
 
   def edit
@@ -43,6 +61,8 @@ class Users::UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.follower_user.page(params[:page]).per(10)
   end
+
+
 
   def user_params
   	params.require(:user).permit(:image, :last_name, :first_name, :read_last_name, :read_first_name, :email, :introduction)

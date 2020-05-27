@@ -25,6 +25,7 @@ class Users::CommentsController < ApplicationController
     @comment.create_notification_thanks!(current_user)
   end
 
+
   private
   def comment_params
   	params.require(:comment).permit(:comment, :thanks)

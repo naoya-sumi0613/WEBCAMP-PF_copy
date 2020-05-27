@@ -4,13 +4,33 @@ class Users::PhotosController < ApplicationController
   impressionist :actions => [:show], :unique => [:impressionable_id, :user_id]
 
   def index
-    @photos = Photo.page(params[:page]).per(12)
     @user = User.find(current_user.id)
-    @name = "投稿一覧"
+    @array = []
+
     if params[:tag_name]
-      @photos = Photo.tagged_with("#{params[:tag_name]}").page(params[:page]).per(12)
+      @photos = Photo.tagged_with("#{params[:tag_name]}")
       @name = "”#{params[:tag_name]}”一覧"
+    else
+      @photos = Photo.all
+      @name = "投稿一覧"
     end
+
+    #ページネーションが上手くいかなかったため、配列取り出し
+    @photos.each do |photo|
+      if photo.range == "全ユーザー"
+        @array.push(photo)
+      elsif photo.range == "フォロワーのみ"
+        if current_user.following?(photo.user) || photo.user.id == current_user.id
+          @array.push(photo)
+        end
+      else
+        if photo.user.id == current_user.id
+          @array.push(photo)
+        end
+      end
+    end
+
+    @photos_array = Kaminari.paginate_array(@array).page(params[:page]).per(12)
   end
 
   def new
@@ -54,6 +74,8 @@ class Users::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @comments = Comment.where(photo_id: @photo.id).page(params[:page]).per(10)
   end
+
+
 
   def photo_params
   	params.require(:photo).permit(:user_id, :image, :word, :range, :tag_list)

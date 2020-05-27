@@ -20,35 +20,6 @@ label {
 	width: 65%;
 }
 
-.frames {
-	display: inline-block;
-	margin-bottom: 5%;
-	padding-bottom: 3%;
-  position: relative;
-  background: #fff0cd;
-  box-shadow: 0px 0px 0px 5px #fff0cd;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  color: #454545;
-}
-
-.frames:after{
-  position: absolute;
-  content: '';
-  right: -7px;
-  top: -7px;
-  border-width: 0 15px 15px 0;
-  border-style: solid;
-  border-color: #ffdb88 #fff #ffdb88;
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
-}
-
-@media screen and (max-width:768px) {
-	.frames {
-		margin: 0 10px;
-	}
-}
-
 .picture {
   font-size: 13px;
   padding:7px;
@@ -61,6 +32,7 @@ label {
   box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 5px 5px 0 rgba(0,0,0,.1);
   transform: translateY(-3px) translateX(-3px);
 }
+
 .frame {
   margin-bottom: 20px;
 }
@@ -100,13 +72,6 @@ label {
   color: #FFF;
   font-weight: bold;
   letter-spacing: 0.05em;
-}
-
-
-.text {
-	font-size: 15px;
-	padding-left: 0;
-	padding-right: 0;
 }
 
 .over-text {

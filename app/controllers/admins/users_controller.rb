@@ -12,7 +12,7 @@ class Admins::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @photos = Photo.where(user_id: params[:id]).page(params[:page]).per(12)
+    @photos = Photo.where(user_id: params[:id]).page(params[:page]).per(24)
     @name = "#{@user.last_name}#{@user.first_name}さん"
   end
 
