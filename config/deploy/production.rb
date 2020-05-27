@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server '54.168.82.201', user: 'ec2-user', roles: %w{app web db}
+server 'flipflap.work', user: 'ec2-user', roles: %w{app web db}
