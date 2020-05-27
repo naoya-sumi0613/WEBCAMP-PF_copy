@@ -1,9 +1,9 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.0"
 
-set :application, "flipflap"
+set :application, "WEBCAMP-PF"
 set :repo_url, "https://github.com/naoya-sumi0613/WEBCAMP-PF.git"
-set :deploy_to, "/home/ec2-user/flipflap"
+set :deploy_to, "/home/ec2-user/WEBCAMP-PF"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
