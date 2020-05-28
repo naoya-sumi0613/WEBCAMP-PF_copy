@@ -10,7 +10,13 @@
 			<span class="side_title">プロフィール</span>
 			<div class="row" style="margin: 10px 0;">
 				<div class="col-12" style="text-align: center;">
-					<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', class: "radius" %>
+					<% if @user.image.nil? %>
+						<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', class: "radius" %>
+					<% else %>
+						<%= link_to @user.image_url, 'data-lightbox': @user.image do %>
+							<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', class: "radius" %>
+						<% end %>
+					<% end %>
 				</div>
 			</div>
 			<div class="row">
@@ -38,7 +44,7 @@
 				<% else %>
 					<div class="col-12" style="text-align: right; margin: 10px 0; padding-right: 10%;">
 						<%= link_to edit_user_path(current_user), style: "text-decoration: none; color: gray;" do %>
-							<i class="fas fa-wrench"> プロフィール編集</i>
+							<i class="fas fa-wrench"> 編集</i>
 						<% end %>
 						<%= link_to notifications_path, style: "margin-left: 30px;" do %>
 							<% if notifications_count > 0 %>
