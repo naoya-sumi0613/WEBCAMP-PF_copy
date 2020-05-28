@@ -21,11 +21,17 @@
 
 $(function() {
 
-  $('#top a').on('click',function(){
+  $('#top a').on('click touchstart',function(){
     $('body, html').animate({
       scrollTop:0
     }, 1000);
       return false;
   });
 
+});
+
+$(document).on('click', function(e) {
+  if (!$(e.target).closest('.collapse').length) {
+    $('.collapse').collapse('hide')
+  }
 });
