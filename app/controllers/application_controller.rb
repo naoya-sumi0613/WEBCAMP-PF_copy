@@ -2,27 +2,41 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  	def after_sign_in_path_for(resource)
-      case resource
-      when Admin
-         admins_home_top_path
-      when User
-         user_path(current_user)
-      else
-         super
-      end
+  def after_sign_in_path_for(resource)
+    case resource
+    when Admin
+      admins_home_top_path
+    when User
+      user_path(current_user)
+    else
+      super
     end
+  end
 
   def after_sign_out_path_for(resource)
-      case resource
-      when Admin, :admin, :admins
-        new_admin_session_path
-      when User, :customer, :customers
-        root_path
-      else
-        super
-      end
+    case resource
+    when Admin, :admin, :admins
+      new_admin_session_path
+    when User, :customer, :customers
+      root_path
+    else
+      super
     end
+  end
+
+  # 例外処理
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from ActionController::RoutingError, with: :render_404
+  rescue_from Exception, with: :render_500
+
+  def render_404
+    render template: 'errors/error_404', status: 404, layout: 'application', content_type: 'text/html'
+  end
+
+  def render_500
+    render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
+  end
+
 
   protected
   def configure_permitted_parameters
