@@ -10,13 +10,13 @@
       <span class="side_title">プロフィール</span>
       <div class="row" style="margin: 10px 0;">
         <div class="col-12" style="text-align: center;">
-          <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '300x200', class: "radius" %>
+          <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: 'no_image.jpg', size: '200x200', class: "radius" %>
         </div>
       </div>
       <div class="row">
         <div class="col-12 over-text" style="text-align: center;">
           <strong>
-            <%= "#{@user.last_name}#{@user.first_name}" %>　<%= "(#{@user.read_last_name}#{@user.read_first_name})" %></br>
+            <%= "#{@user.last_name} #{@user.first_name}" %>　<%= "(#{@user.read_last_name} #{@user.read_first_name})" %></br>
             <%= mail_to "#{@user.email}" %>
           </strong>
         </div>
@@ -39,7 +39,7 @@
           <div class="picture" style="margin: auto;">
             <div class="row">
               <div class="col-12">
-                <%= attachment_image_tag photo, :image, :fill, 300, 200 %>
+                <%= attachment_image_tag photo, :image, :fill, 300, 300 %>
               </div>
             </div>
             <div class="row" style="margin-top: 3px;">

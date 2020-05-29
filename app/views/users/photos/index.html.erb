@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-12 over-text" style="text-align: center;">
 					<strong>
-						<%= "#{@user.last_name}#{@user.first_name}" %>　<%= "(#{@user.read_last_name}#{@user.read_first_name})" %>
+						<%= "#{@user.last_name} #{@user.first_name}" %>　<%= "(#{@user.read_last_name} #{@user.read_first_name})" %>
 					</strong>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 			<div class="row">
 				<div class="col-12" style="text-align: right; margin: 10px 0; padding-right: 10%;">
 					<%= link_to edit_user_path(current_user), style: "text-decoration: none; color: gray;" do %>
-						<i class="fas fa-wrench"> プロフィール編集</i>
+						<i class="fas fa-wrench"> 編集</i>
 					<% end %>
 					<%= link_to notifications_path, style: "margin-left: 30px;" do %>
 						<% if notifications_count > 0 %>

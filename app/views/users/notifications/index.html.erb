@@ -3,18 +3,16 @@
     <h3>通知一覧</h3>
   </div>
 </div>
-<div class="row">
-  <div class="col-12" style="text-align: right; max-width: 768px;">
-    <%= link_to notifications_path, method: :delete, "data-confirm" => "通知を全件削除します。よろしいですか？", style: "color: black;" do %>
-      <i class="far fa-trash-alt">全削除</i>
-    <% end %>
-  </div>
-</div>
 
-<% @notifications.where.not(visitor_id: current_user.id).each do |notification| %>
-  <% if notification.visited_id.nil? %>
-    <p>通知はありません</p>
-  <% else %>
+<% if @notifications.exists? %>
+  <div class="row">
+    <div class="col-12" style="text-align: right; max-width: 768px;">
+      <%= link_to notifications_path, method: :delete, "data-confirm" => "通知を全件削除します。よろしいですか？", style: "color: black;" do %>
+        <i class="far fa-trash-alt">全削除</i>
+      <% end %>
+    </div>
+  </div>
+  <% @notifications.where.not(visitor_id: current_user.id).each do |notification| %>
     <div class="row box" style="max-width: 768px; font-size: 13px; margin-bottom: 5px;">
       <div class="col-2" style="max-width: 80px; margin: auto;">
         <%= link_to user_path(notification.visitor) do %>
@@ -44,9 +42,12 @@
       </div>
     </div>
   <% end %>
+<% else %>
+  <div class="row">
+    <div class="col-12" style="margin-left: 40px; margin-top: 20px;">
+      <p style="font-size: 20px;">通知はありません。</p>
+    </div>
+  </div>
 <% end %>
 
 <%= paginate @notifications %>
-
-
-

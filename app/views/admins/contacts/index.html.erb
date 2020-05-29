@@ -25,7 +25,7 @@
         <td><%= l contact.created_at, format: :short %></td>
         <td class="over-text" style="max-width: 0;">
           <%= link_to admins_user_path(contact.user), style: "color: black; text-decoration: none;" do %>
-            <%= "#{contact.user.last_name}#{contact.user.first_name}" %>
+            <%= "#{contact.user.last_name} #{contact.user.first_name}" %>
           <% end %>
         </td>
         <td class="over-text" style="max-width: 0;">
