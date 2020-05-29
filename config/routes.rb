@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:index, :destroy, :show, :update]
   end
 
-  get '*path', controller: 'application', action: 'render_404'
+  #get '*path', controller: 'application', action: 'render_404'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

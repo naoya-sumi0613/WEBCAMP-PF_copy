@@ -6,6 +6,21 @@
 
 <div class="row">
 	<div class="col-md-5 col-lg-4 col-xl-3">
+		<div class="row">
+			<div class="col-12" style="text-align: right; margin-bottom: 5px;">
+				<% if params[:follow] == nil %>
+					<div class="btn-group btn-group-sm" role="group" aria-label="...">
+						<%= link_to "全ユーザー", photos_path, class: "btn btn-success btn-sm active p-1 m-0" %>
+						<%= link_to "フォロー", photos_path(follow: :follow), class: "btn btn-outline-success btn-sm p-1 m-0" %>
+					</div>
+				<% else %>
+					<div class="btn-group btn-group-sm" role="group" aria-label="...">
+						<%= link_to "全ユーザー", photos_path, class: "btn btn-outline-success btn-sm p-1 m-0" %>
+						<%= link_to "フォロー", photos_path(follow: :follow), class: "btn btn-success btn-sm active p-1 m-0" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
 		<div class="sidebar_fixed side">
 			<span class="side_title">プロフィール</span>
 			<div class="row" style="margin: 10px 0;">

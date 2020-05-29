@@ -10,6 +10,9 @@ class Users::PhotosController < ApplicationController
     if params[:tag_name]
       @photos = Photo.tagged_with("#{params[:tag_name]}")
       @name = "”#{params[:tag_name]}”一覧"
+    elsif params[:follow]
+      @photos = Photo.where(user_id: current_user.following_user)
+      @name = "投稿一覧"
     else
       @photos = Photo.all
       @name = "投稿一覧"
