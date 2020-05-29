@@ -23,7 +23,9 @@
 ### 主な利用シーン
 Twitter、Instagram等、SNSと同じ。
 
-## 設計書
+## 設計書  
+※設計から多少使用を変更しております。ご了承ください。  
+
 UIFlows(ユーザー側)
 ![image](https://user-images.githubusercontent.com/61011568/81190967-6e629200-8ff3-11ea-805b-5ad519f909d2.png)
 
